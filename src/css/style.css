@@ -1,0 +1,163 @@
+body {
+    font-family: "Poppins", sans-serif; /* Caso não carregue a font poppins, carregue qualquer fonte menos sans-serif*/
+    background-image: url("../imagens/background.png");
+    background-size: cover; /*Define o tamnho do fundo do body [usando o cover, ele cobre a altura da div, com a mesma imagem] */
+    background-position: center;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    backdrop-filter: blur(4px);
+}
+
+main {
+    display: flex;
+    justify-content: center; /*alinha todos os elementos no centro*/
+    align-items: center; /* Para poder centralizar um elemento, é necessário dar espaço para ele [nesse caso o elemento nao tem espaço suficiente para alinhar]*/
+    min-height: 100vh; /*Aqui então definimos a altura minima que o elemento pode ocupar e neste caso, foi usado o VH pois é usado 100% de toda a altura da janela do navegador*/
+}
+
+.pokedevs {
+    display: flex;
+    gap: 30px;
+    padding: 30px 0;
+}
+
+.cartao-pokedev {
+    display: none; /*Usar o none, fala o display na mostrar nenhum cartao pokedev*/
+    max-width: 360px; /*Define o tamanho máximo da largura que o cartão terá*/
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.cartao-pokedev.aberto { /*Ao escrever duas classe, estiliza somente o elemento que tem as duas classes*/
+    display: block; /* Mostrar o elemento na tela*/
+}
+
+.cartao-pokedev img {
+    width: 100%; /*Define o tamanho da imagem como 100% da div pai, não ira passar de 360px*/
+    height: 100%; /*Define a aluta da imagem como 1005 da div pai*/
+    margin-top: 10px; /*Definir o espaçamento entre elemetos do topo*/
+}
+.cartao-pokedev .cartao-topo {
+    padding: 30px 40px 0; /*Espaçamento interno - 30px em cima, 40px dos lados e 0 embaixo*/
+}
+
+.cartao-pokedev .nome {
+    margin-bottom: 5px;
+}
+
+.cartao-pokedev .tipo {
+    background-color: #ffffff;
+    font-size: 12px; /* define o tamanho da fonte*/
+    opacity: 0.7;
+    border-radius: 10px; /*Arredonda um elemento*/
+    padding: 2px 10px; /*Espaçamento interno de 2px em cima e embaixo e 10px dos lados*/
+}
+
+.cartao-pokedev .detalhes {
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between; /*centraliza o elementos horizontalmente e dando espaço entre os elementos.*/
+}
+
+.cartao-pokedev .cartao-informacoes {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    padding: 80px 30px 50px;
+    margin-top: -70px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.cartao-pokedev .cartao-informacoes h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #6b727a; /*Cria uma borda de um pixel, solida*/ 
+}
+
+.cartao-pokedev .cartao-informacoes .descricao {
+    padding: 0 10px; /*Define espaçamento em cima e embaixo como 0, e 10px nas latereais*/
+    font-size: 15px;
+    max-height: 150px; /*Define uma altura maxima*/
+    overflow-y:scroll; /*Ao definir uma altura maxima, o texto estava vazando, entao a propriedade overflow, cria uma barra de rolagem no eixo y*/
+}
+
+.tipo-eletrico {
+    background-color: #fcc719;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.tipo-fogo {
+    background-color: #f15000d2;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.tipo-agua {
+    background-color: #015c98;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.tipo-grama {
+    background-color: #49d0b0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.tipo-trevas {
+    background-color: #ba68c8;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.tipo-fada {
+    background-color: #c29791;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.listagem {
+    max-width: 200px;
+}
+
+.listagem .pokedev img {
+    width: 25%;
+}
+
+.listagem .pokedev {
+    background-color: #6b727a;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    margin-bottom: 10px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    cursor: pointer;
+    min-height: 70px;
+    transition: 0.13 ease-in-out;
+}
+
+.listagem .pokedev:hover{
+    transform: scale(1.07);
+}
+
+.listagem .pokedev span {
+    padding-right: 20px;
+}
+
+.listagem .pokedev.ativo {
+    background-color: #f16668;
+}
